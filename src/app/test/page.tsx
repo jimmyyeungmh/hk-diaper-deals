@@ -2,7 +2,7 @@ import { supabase } from "@/lib/supabase";
 
 export default async function TestPage() {
   const { data, error } = await supabase
-    .from("products")
+    .from("stores")
     .select("*");
 
   if (error) {
@@ -11,12 +11,12 @@ export default async function TestPage() {
 
   return (
     <main style={{ padding: 20 }}>
-      <h1>Supabase Test</h1>
+      <h1>Stores Test</h1>
 
       {data?.map((item) => (
         <div key={item.id}>
-        {item.brand} {item.series} {item.size}
-      </div>
+          {item.name}
+        </div>
       ))}
     </main>
   );
